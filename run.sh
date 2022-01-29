@@ -21,17 +21,17 @@ if [ "$(lsb_release -cs)" = "bionic" ]; then
 elif [ "$(lsb_release -cs)" = "focal" ]; then
 	sudo apt install -y python3-rosdep python3-vcstool # https://index.ros.org/doc/ros2/Installation/Linux-Development-Setup/
 fi
-grep -F "source /opt/ros/$CHOOSE_ROS_DISTRO/setup.bash" ~/.bashrc ||
-echo "source /opt/ros/$CHOOSE_ROS_DISTRO/setup.bash" >> ~/.bashrc
+grep -F "source /opt/ros/$CHOOSE_ROS_DISTRO/setup.zsh" ~/.zshrc ||
+echo "source /opt/ros/$CHOOSE_ROS_DISTRO/setup.zsh" >> ~/.zshrc
 
 set +u
 
-source /opt/ros/$CHOOSE_ROS_DISTRO/setup.bash
+source /opt/ros/$CHOOSE_ROS_DISTRO/setup.zsh
 
-echo "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" >> ~/.bashrc
+echo "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" >> ~/.zshrc
 mkdir -p ~/ros2_ws/src 
 cd ~/ros2_ws && colcon build
-echo "source ~/ros2_ws/install/setup.bash" >> ~/.bashrc
+echo "source ~/ros2_ws/install/setup.zsh" >> ~/.zshrc
 
 echo "success installing ROS2 $CHOOSE_ROS_DISTRO"
-echo "Run 'source /opt/ros/$CHOOSE_ROS_DISTRO/setup.bash'"
+echo "Run 'source /opt/ros/$CHOOSE_ROS_DISTRO/setup.zsh'"
