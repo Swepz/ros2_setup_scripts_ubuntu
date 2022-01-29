@@ -28,5 +28,10 @@ set +u
 
 source /opt/ros/$CHOOSE_ROS_DISTRO/setup.bash
 
+echo "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" >> ~/.bashrc
+mkdir -p ~/ros2_ws/src 
+cd ~/ros2_ws && colcon build
+echo "source ~/ros2_ws/install/setup.bash" >> ~/.bashrc
+
 echo "success installing ROS2 $CHOOSE_ROS_DISTRO"
 echo "Run 'source /opt/ros/$CHOOSE_ROS_DISTRO/setup.bash'"
