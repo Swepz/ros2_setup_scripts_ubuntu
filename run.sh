@@ -24,6 +24,11 @@ fi
 grep -F "source /opt/ros/$CHOOSE_ROS_DISTRO/setup.bash" ~/.bashrc ||
 echo "source /opt/ros/$CHOOSE_ROS_DISTRO/setup.bash" >> ~/.bashrc
 
+echo "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" >> ~/.bashrc
+mkdir -p ~/ros2_ws
+cd ~/ros2_ws && colcon build
+echo "source ~/ros2_ws/install/setup.bash" >> ~/.bashrc
+
 set +u
 
 source /opt/ros/$CHOOSE_ROS_DISTRO/setup.bash
